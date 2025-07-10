@@ -75,11 +75,13 @@
       margin-bottom: 2rem;
       box-shadow: 0 8px 20px var(--card-shadow);
       transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+      will-change: transform;
     }
     .box:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+      transform: scale(1.05) translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
       background-color: var(--card-hover-bg);
+      z-index: 10;
     }
     h2 {
       font-size: 1.6rem;
@@ -93,19 +95,6 @@
     .box p {
       margin-top: 0.5rem;
       line-height: 1.6;
-    }
-    .skills-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    .skill-tag {
-      background: #eef2ff;
-      color: #4338ca;
-      padding: 0.5rem 1rem;
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: 0.9rem;
     }
     .contact a, .contact p {
       display: block;
@@ -164,27 +153,26 @@
       <div class="box" data-aos="fade-up">
         <h2>Projects</h2>
         <div class="grid-boxes">
+
           <div class="box" data-aos="zoom-in">
-            <strong>OpenWRT Gateway</strong>
-            <p>Customized router for MT7628AN supporting SSID, hotspot sharing, and LED control. Integrated network UI config and optimized boot.</p>
-            <p><a href="https://github.com/manivardhansatha/openwrt-gateway" target="_blank">GitHub Repo</a></p>
+            <strong>OpenWRT IoT Gateway</strong>
+            <p>Customized an OpenWRT router (MT7628AN) to support SSID, hotspot, LED control, sensor data reading via I²C/SPI, and sending data to IoT cloud using MQTT. Added basic web UI for configuration.</p>
           </div>
+
           <div class="box" data-aos="zoom-in">
-            <strong>Minus Forty Monitoring</strong>
-            <p>Migrated codebase to Python 3. Used pymodbus for RS485 freezer monitoring with real-time analytics and visualization.</p>
-            <p><a href="https://github.com/manivardhansatha/minus-forty" target="_blank">GitHub Repo</a></p>
+            <strong>Minus Forty Freezer Monitoring</strong>
+            <p>Worked on IoT-based freezer and refrigerator system. Migrated code to Python 3 and used Modbus over RS485 for sending commands and receiving data from the devices.</p>
           </div>
+
           <div class="box" data-aos="zoom-in">
-            <strong>Wesko Updater</strong>
-            <p>Firmware update utility with MD5 checks, .pyc conversion and safe rollback. Increased upgrade reliability and field success rate.</p>
-            <p><a href="https://github.com/manivardhansatha/wesko-updater" target="_blank">GitHub Repo</a></p>
+            <strong>Wesko Smart Lock Updater</strong>
+            <p>Worked on controlling smart locks via BLE using Python 3. Improved the firmware updater with MD5 checks, .pyc conversion, and rollback support for safer OTA updates.</p>
           </div>
+
           <div class="box" data-aos="zoom-in">
-          <strong>Real-Time Object Detection with OpenCV</strong>
-          <p>Built a Python-based object detection system using OpenCV. Implemented Haar cascades and thresholding techniques for identifying and tracking objects in real time from a live camera feed.</p>
-          <!-- Optional GitHub link -->
-          <!-- <p><a href="https://github.com/yourusername/object-detection" target="_blank">GitHub Repo</a></p> -->
-        </div>
+            <strong>Object Detection with OpenCV</strong>
+            <p>Used OpenCV and Python to detect and track objects from webcam input using basic techniques like Haar cascades and thresholding.</p>
+          </div>
 
         </div>
       </div>
@@ -194,47 +182,38 @@
       <div class="box" data-aos="fade-up">
         <h2>Skills</h2>
         <div class="grid-boxes">
-          
           <div class="box" data-aos="zoom-in">
             <strong>Programming Languages</strong>
             <p>Embedded C, Python, C++, Shell Script</p>
           </div>
-
           <div class="box" data-aos="zoom-in">
             <strong>Microcontrollers</strong>
             <p>STM32, ARM, ESP32, PIC, AVR, Raspberry Pi, Qualcomm SM6112</p>
           </div>
-
           <div class="box" data-aos="zoom-in">
             <strong>Protocols & Interfaces</strong>
             <p>I2C, SPI, UART, MQTT, BLE, HTTP</p>
           </div>
-
           <div class="box" data-aos="zoom-in">
             <strong>Operating Systems</strong>
             <p>Embedded Linux, Yocto, OpenWRT, Ubuntu, Debian, RTOS concepts</p>
           </div>
-
           <div class="box" data-aos="zoom-in">
             <strong>Object Detection</strong>
-            <p>OpenCV, Image Processing</p>
+            <p>OpenCV, Python, Haar cascades, thresholding</p>
           </div>
-
           <div class="box" data-aos="zoom-in">
             <strong>Debugging Tools</strong>
             <p>Oscilloscope (basic), Logic Analyzer (basic), UART/SPI/I2C protocol analyzers</p>
           </div>
-
           <div class="box" data-aos="zoom-in">
             <strong>Tools & Version Control</strong>
             <p>Git, JIRA, Bitbucket</p>
           </div>
-
           <div class="box" data-aos="zoom-in">
             <strong>Cloud & DevOps</strong>
             <p>IoT Platforms, Sensor Integration, AWS</p>
           </div>
-
         </div>
       </div>
     </section>
@@ -258,9 +237,8 @@
     AOS.init({
       duration: 1000,
       once: false,
-      mirror: true // 👈 animations work on scroll up too
+      mirror: true
     });
   </script>
 </body>
 </html>
-
