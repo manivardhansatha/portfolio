@@ -4,42 +4,47 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mani Vardhan Satha | Embedded Systems Engineer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
   <style>
     :root {
-      --accent: #6366f1;
       --bg: #f9fafb;
       --text: #1f2937;
-      --card-bg: #ffffff;
-      --card-hover-bg: #eef2ff;
-      --card-shadow: rgba(0, 0, 0, 0.05);
+      --accent: #0f766e;
+      --card: #ffffff;
+      --card-hover: #f1f5f9;
     }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      scroll-behavior: smooth;
     }
+
     body {
       font-family: 'Inter', sans-serif;
       background-color: var(--bg);
       color: var(--text);
     }
+
     header {
-      background: linear-gradient(90deg, #6366f1, #8b5cf6);
-      color: white;
+      padding: 4rem 2rem;
       text-align: center;
-      padding: 5rem 2rem;
+      background-color: #e0f2f1;
     }
+
     header h1 {
       font-size: 2.8rem;
-      font-weight: 700;
+      color: var(--accent);
+      animation: fadeSlideUp 1s ease-out;
     }
+
     header p {
       font-size: 1.2rem;
-      opacity: 0.9;
       margin-top: 0.5rem;
     }
+
     nav {
       margin-top: 2rem;
       display: flex;
@@ -47,189 +52,185 @@
       gap: 2rem;
       flex-wrap: wrap;
     }
+
     nav a {
-      color: #e0e7ff;
+      color: var(--accent);
       text-decoration: none;
       font-weight: 600;
-      padding-bottom: 0.2rem;
+      padding-bottom: 2px;
       border-bottom: 2px solid transparent;
-      transition: border-color 0.3s;
+      transition: border-color 0.3s ease;
     }
+
     nav a:hover {
-      border-color: #e0e7ff;
+      border-color: var(--accent);
     }
+
     main {
-      max-width: 1200px;
+      max-width: 1100px;
       margin: 3rem auto;
       padding: 0 1.5rem;
     }
-    .grid-boxes {
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      color: var(--accent);
+      position: relative;
+      margin-bottom: 1.5rem;
+      animation: fadeSlideUp 1s ease-out;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 50px;
+      height: 3px;
+      background-color: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    section:hover h2::after {
+      width: 80px;
+    }
+
+    .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
     }
+
     .box {
-      background: var(--card-bg);
-      border-radius: 1rem;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 8px 20px var(--card-shadow);
-      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+      background-color: var(--card);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       will-change: transform;
     }
+
     .box:hover {
-      transform: scale(1.05) translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-      background-color: var(--card-hover-bg);
-      z-index: 10;
+      transform: perspective(800px) translateY(-10px) scale(1.05);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      background-color: var(--card-hover);
+      z-index: 1;
     }
-    h2 {
-      font-size: 1.6rem;
-      color: var(--accent);
-      margin-bottom: 1rem;
-    }
+
     .box strong {
-      color: var(--accent);
       font-size: 1.1rem;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.5rem;
     }
+
     .box p {
-      margin-top: 0.5rem;
-      line-height: 1.6;
+      font-size: 0.95rem;
+      line-height: 1.5;
     }
-    .contact a, .contact p {
+
+    .contact a {
       display: block;
       margin-bottom: 0.5rem;
       color: var(--accent);
-      font-weight: 500;
       text-decoration: none;
     }
+
     .contact a:hover {
       text-decoration: underline;
     }
-    .resume-btn {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.5rem 1rem;
-      background: var(--accent);
-      color: white;
-      font-weight: 600;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: background 0.3s ease;
-    }
-    .resume-btn:hover {
-      background: #4f46e5;
-    }
+
     footer {
-      background-color: #1e293b;
-      color: #cbd5e1;
       text-align: center;
       padding: 2rem;
       font-size: 0.9rem;
+      background-color: #f1f5f9;
+      color: #64748b;
+    }
+
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
 <body>
+
   <header>
     <h1>Mani Vardhan Satha</h1>
-    <p>Embedded Systems & Electronics Engineer</p>
+    <p>Embedded Systems & IoT Engineer</p>
     <nav>
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
     </nav>
-    <a href="resume.pdf" download class="resume-btn">Download Resume</a>
   </header>
 
   <main>
-    <section id="about" class="box" data-aos="fade-up">
+    <section id="about" data-aos="fade-up">
       <h2>About Me</h2>
-      <p>Hello! I'm Mani Vardhan Satha, an Embedded Systems Engineer passionate about designing and building reliable hardware-software systems. I specialize in firmware development, IoT device integration, and Linux-based embedded platforms like OpenWRT.</p>
-      <p>My background in electronics & communication allows me to work across the stack—from sensor interfacing and peripheral programming to cloud communication and analytics.</p>
+      <div class="box" data-aos="fade-up">
+        <p>I’m an Embedded Systems Engineer with experience working on microcontrollers, communication protocols, Linux platforms, and IoT integration. I specialize in building real-world firmware systems that talk to hardware, cloud, and everything in between.</p>
+      </div>
     </section>
 
-    <section id="projects">
-      <div class="box" data-aos="fade-up">
-        <h2>Projects</h2>
-        <div class="grid-boxes">
-
-          <div class="box" data-aos="zoom-in">
-            <strong>OpenWRT IoT Gateway</strong>
-            <p>Customized an OpenWRT router (MT7628AN) to support SSID, hotspot, LED control, sensor data reading via I²C/SPI, and sending data to IoT cloud using MQTT. Added basic web UI for configuration.</p>
-          </div>
-
-          <div class="box" data-aos="zoom-in">
-            <strong>Minus Forty Freezer Monitoring</strong>
-            <p>Worked on IoT-based freezer and refrigerator system. Migrated code to Python 3 and used Modbus over RS485 for sending commands and receiving data from the devices.</p>
-          </div>
-
-          <div class="box" data-aos="zoom-in">
-            <strong>Wesko Smart Lock Updater</strong>
-            <p>Worked on controlling smart locks via BLE using Python 3. Improved the firmware updater with MD5 checks, .pyc conversion, and rollback support for safer OTA updates.</p>
-          </div>
-
-          <div class="box" data-aos="zoom-in">
-            <strong>Object Detection with OpenCV</strong>
-            <p>Used OpenCV and Python to detect and track objects from webcam input using basic techniques like Haar cascades and thresholding.</p>
-          </div>
-
+    <section id="projects" data-aos="fade-up">
+      <h2>Projects</h2>
+      <div class="grid">
+        <div class="box" data-aos="zoom-in">
+          <strong>OpenWRT IoT Gateway</strong>
+          <p>Customized MT7628AN router with OpenWRT. Integrated SSID, hotspot, LED control, sensor interfaces via I²C/SPI, and cloud sync over MQTT.</p>
+        </div>
+        <div class="box" data-aos="zoom-in">
+          <strong>Minus Forty Monitoring</strong>
+          <p>Used Modbus (RS485) and Python 3 to read freezer and refrigerator data. Enabled real-time monitoring and command control.</p>
+        </div>
+        <div class="box" data-aos="zoom-in">
+          <strong>Wesko Smart Lock</strong>
+          <p>Developed BLE-based smart lock controller. Built OTA updater using MD5, rollback safety, and .pyc handling for field updates.</p>
+        </div>
+        <div class="box" data-aos="zoom-in">
+          <strong>Object Detection</strong>
+          <p>Created OpenCV-based object tracking using Haar cascades and thresholding for embedded camera modules.</p>
         </div>
       </div>
     </section>
 
-    <section id="skills">
-      <div class="box" data-aos="fade-up">
-        <h2>Skills</h2>
-        <div class="grid-boxes">
-          <div class="box" data-aos="zoom-in">
-            <strong>Programming Languages</strong>
-            <p>Embedded C, Python, C++, Shell Script</p>
-          </div>
-          <div class="box" data-aos="zoom-in">
-            <strong>Microcontrollers</strong>
-            <p>STM32, ARM, ESP32, PIC, AVR, Raspberry Pi, Qualcomm SM6112</p>
-          </div>
-          <div class="box" data-aos="zoom-in">
-            <strong>Protocols & Interfaces</strong>
-            <p>I2C, SPI, UART, MQTT, BLE, HTTP</p>
-          </div>
-          <div class="box" data-aos="zoom-in">
-            <strong>Operating Systems</strong>
-            <p>Embedded Linux, Yocto, OpenWRT, Ubuntu, Debian, RTOS concepts</p>
-          </div>
-          <div class="box" data-aos="zoom-in">
-            <strong>Object Detection</strong>
-            <p>OpenCV, Python, Haar cascades, thresholding</p>
-          </div>
-          <div class="box" data-aos="zoom-in">
-            <strong>Debugging Tools</strong>
-            <p>Oscilloscope (basic), Logic Analyzer (basic), UART/SPI/I2C protocol analyzers</p>
-          </div>
-          <div class="box" data-aos="zoom-in">
-            <strong>Tools & Version Control</strong>
-            <p>Git, JIRA, Bitbucket</p>
-          </div>
-          <div class="box" data-aos="zoom-in">
-            <strong>Cloud & DevOps</strong>
-            <p>IoT Platforms, Sensor Integration, AWS</p>
-          </div>
-        </div>
+    <section id="skills" data-aos="fade-up">
+      <h2>Skills</h2>
+      <div class="grid">
+        <div class="box" data-aos="fade-up"><strong>Languages</strong><p>Embedded C, Python, C++, Shell</p></div>
+        <div class="box" data-aos="fade-up"><strong>Microcontrollers</strong><p>STM32, ESP32, PIC, AVR, Raspberry Pi, Qualcomm SM6112</p></div>
+        <div class="box" data-aos="fade-up"><strong>Protocols</strong><p>I2C, SPI, UART, MQTT, BLE, HTTP</p></div>
+        <div class="box" data-aos="fade-up"><strong>Platforms</strong><p>Linux, Yocto, OpenWRT, RTOS</p></div>
+        <div class="box" data-aos="fade-up"><strong>Tools</strong><p>Git, Bitbucket, JIRA, Logic Analyzer, Oscilloscope</p></div>
+        <div class="box" data-aos="fade-up"><strong>Vision</strong><p>OpenCV, Haar cascades, thresholding</p></div>
       </div>
     </section>
 
-    <section id="contact">
+    <section id="contact" data-aos="fade-up">
+      <h2>Contact</h2>
       <div class="box contact" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p><a href="mailto:manivardhansatha@gmail.com">manivardhansatha@gmail.com</a></p>
-        <a href="https://github.com/manivardhansatha" target="_blank">GitHub: github.com/manivardhansatha</a>
-        <a href="https://www.linkedin.com/in/mani-vardhan-satha/" target="_blank">LinkedIn: linkedin.com/in/mani-vardhan-satha</a>
+        <a href="mailto:manivardhansatha@gmail.com">manivardhansatha@gmail.com</a>
+        <a href="https://github.com/manivardhansatha" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/mani-vardhan-satha" target="_blank">LinkedIn</a>
       </div>
     </section>
   </main>
 
   <footer>
-    &copy; 2025 Mani Vardhan Satha. Designed with clarity and creativity.
+    &copy; 2025 Mani Vardhan Satha — Embedded Portfolio
   </footer>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
